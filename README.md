@@ -227,7 +227,7 @@ If Azure reports a delete polling error, verify the specific Users resource stat
 
 ## Checks without Azure
 
-Pinned tools/providers: Terraform 1.16.5, AzureRM 5.9.0, AzAPI 2.13.0. The lock file includes signed Linux and Windows package checksums. CI runs backend-disabled init, fmt, schema validation, 21 mocked plans, and the offline PowerShell deployment/egress checks on Linux and Windows. It has no Azure credentials and never applies resources.
+Pinned tools/providers: Terraform 1.16.5, AzureRM 5.9.0, AzAPI 2.13.0. The lock file includes signed Linux and Windows package checksums. CI runs backend-disabled init, fmt, schema validation, 22 mocked runs (21 plans and one fully mocked apply for assigned credentials), and the offline PowerShell deployment/egress checks on Linux and Windows. It has no Azure credentials and never applies resources.
 
 Tests cover shared environment reuse, zero-cost database SKU parameters, encoded service-assigned credentials, exact plan-known firewall maps, internal prepare vs database-ready serve, Key Vault references and isolated operator-only Swagger access. The PowerShell checks cover merging/deduplication, stable reruns, input preservation on failure, private/Azure-wide rejection and retaining serving settings when closing Swagger.
 
