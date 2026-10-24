@@ -1,0 +1,5 @@
+subscription_id    = "REPLACE_WITH_SUBSCRIPTION_UUID"
+operator_object_id = "REPLACE_WITH_OPERATOR_ENTRA_UUID"
+environment        = "dev"
+name_suffix        = "mb261024"
+# Supply mongo_admin_password via TF_VAR_mongo_admin_password in each PowerShell session.
