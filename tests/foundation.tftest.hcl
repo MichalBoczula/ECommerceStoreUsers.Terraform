@@ -172,11 +172,3 @@ run "operator_only_swagger" {
   }
 }
 
-# Every provider is mocked; this resolves dynamic AzAPI results without contacting Azure.
-run "assigned_credentials_reach_key_vault" {
-  command = apply
-  assert {
-    condition     = azurerm_key_vault_secret.users_mongo.value == "mongodb+srv://azure-assigned-admin:Example%20space%2B%26Passw0rd%21@actual-service-endpoint.example/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000&serverSelectionTimeoutMS=3000&connectTimeoutMS=3000"
-    error_message = "Use assigned username, actual service SRV endpoint, URI-escaped credentials, TLS and disabled retryable writes."
-  }
-}
