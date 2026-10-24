@@ -68,6 +68,8 @@ try {
     }
     $global:UsersTestExitCode = 1
     Assert-Rejected { & (Join-Path $root 'scripts/Set-UsersMongoEgress.ps1') -TerraformPath Test-UsersTerraform -InputsPath $path } 'Failed Azure command accepted.'
+    $global:UsersTestExitCode = 0
+    $global:LASTEXITCODE = 0 # The fake native-command failure above was expected and asserted.
     & (Join-Path $root 'scripts/Set-UsersDeployment.ps1') -Stage Serve -InputsPath $path
     Assert-Rejected { & (Join-Path $root 'scripts/Set-UsersDeployment.ps1') -Stage Prepare -Image $image -InputsPath $path } 'Serving app returned to prepare.'
     Assert-Rejected { & (Join-Path $root 'scripts/Set-UsersDeployment.ps1') -Stage Swagger -ApiOperatorIpv4 '192.168.1.1' -InputsPath $path } 'Private API operator address accepted.'

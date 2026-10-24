@@ -103,7 +103,7 @@ run "free_foundation" {
     error_message = "The app uses its own identity to read its own Key Vault; operator RBAC is explicit."
   }
   assert {
-    condition     = azurerm_key_vault_secret.users_mongo.value == "mongodb+srv://azure-assigned-admin:Example%20space%2B%26Passw0rd%21@actual-service-endpoint.example/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000&serverSelectionTimeoutMS=3000&connectTimeoutMS=3000"
+    condition     = local.mongo_connection == "mongodb+srv://azure-assigned-admin:Example%20space%2B%26Passw0rd%21@actual-service-endpoint.example/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000&serverSelectionTimeoutMS=3000&connectTimeoutMS=3000"
     error_message = "Use assigned username, actual service SRV endpoint, URI-escaped credentials, TLS and disabled retryable writes."
   }
 }
