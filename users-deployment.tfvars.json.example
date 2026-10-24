@@ -1,0 +1,9 @@
+{
+  "deploy_users_app": false,
+  "users_image": null,
+  "users_deployment_stage": "prepare",
+  "users_mongo_egress_ipv4": {},
+  "users_external_ingress_enabled": false,
+  "api_operator_ipv4": null,
+  "min_replicas": 0
+}
